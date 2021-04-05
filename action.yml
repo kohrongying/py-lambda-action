@@ -16,6 +16,10 @@ inputs:
     description: A string of files or folders to exclude, delimited by whitespace.
     required: false
     default: ''
+  lambda_layer_publish:
+    description: Boolean for whether or not publish lambda layer. Defaults to true.
+    required: false
+    default: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -24,6 +28,7 @@ runs:
     - ${{ inputs.lambda_layer_arn }}
     - ${{ inputs.lambda_function_name }}
     - ${{ inputs.exclude_files }}
+    - ${{ inputs.lambda_layer_publish }}
 branding:
   icon: 'layers'
   color: 'yellow'

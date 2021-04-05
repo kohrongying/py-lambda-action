@@ -47,10 +47,15 @@ update_function_layers(){
 }
 
 deploy_lambda_function(){
-	install_zip_dependencies
-	publish_dependencies_as_layer
-	publish_function_code
-	update_function_layers
+    INPUT_LAMBDA_LAYER_PUBLISH=$(echo $INPUT_LAMBDA_LAYER_PUBLISH | tr "[:upper:]" "[:lower:]")
+    if [ "$INPUT_LAMBDA_LAYER_PUBLISH" == "true" ]; then
+        install_zip_dependencies
+        publish_dependencies_as_layer
+        publish_function_code
+        update_function_layers
+    else
+        publish_function_code
+    fi
 }
 
 deploy_lambda_function

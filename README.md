@@ -31,6 +31,9 @@ Stored as secrets or env vars, doesn't matter. But also please don't put your AW
     The name/path for the `requirements.txt` file. Defaults to `requirements.txt`.
 - `exclude_files`
     (Optional) A string of files or folders to exclude, delimited by whitespace. 
+- `lambda_layer_publish`
+    (Optional) A boolean of whether or not to publish lambda layer. Defaults to true.
+
 
 ### Example workflow
 ```yaml
@@ -51,6 +54,7 @@ jobs:
         lambda_layer_arn: 'arn:aws:lambda:us-east-2:123456789012:layer:my-layer'
         lambda_function_name: 'my-function'
         exclude_files: 'tests my-other-file.txt'
+        lambda_layer_publish: true
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
