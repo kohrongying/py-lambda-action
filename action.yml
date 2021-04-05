@@ -1,4 +1,4 @@
-name: Py Lambda Deploy
+name: Deploy Lambda Python
 author: Mariam Maarouf
 description: Deploy python code to AWS Lambda with dependencies in a separate layer.
 inputs:
